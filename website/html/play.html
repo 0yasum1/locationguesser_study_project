@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>RandomLocationGame</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <link rel="stylesheet" type="text/css" href="../CSS/play.css">
+</head>
+<body onload="stopwatch()">
+  <header id="header-bar">
+    <div id="header-icon">
+      <div href="../../index.html" id="header-icon2"></div>
+    </div>
+    <div id="header-timer">
+      <span id="header-timer-timer"></span>
+    </div>
+    <div id="header-score">
+      <table id="header-score-table">
+        <tr>
+          <th id="round" class="roundBorder">Round</th>
+          <th id="round">Score</th>
+        </tr>
+        <tr>  
+          <th id="currentRound" class="roundBorder">1 / 5</th>
+          <th id="currentScore">0</th>
+        </tr>
+      </table>
+    </div>
+  </header>
+  <div id="result-popup-window">
+    <div id="result-popup">
+      <span id="result-text"></span>
+      <span id="result-score"></span>
+      <input type="button" id="next-button" onClick="nextGameFunction()" value="Next" disabled/>
+      <input type="button" id="showResults-button" onClick="showResults()" value="Show Results" style="display: none"/>
+    </div>
+  </div>
+  <script src="../JS/test.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaHZk4ZNggKV1Y8Dn80h3XkYbl6XAOmKw&callback=initialize"></script>
+  <div id="map-and-button" class="map-and-button">
+    <div id="map"></div>
+    <input type="image" src="../IMG/expand2.png" id="expand-button" onclick="expandMap()"/>
+    <div id="expand-bg"></div>
+    <input type="button" disabled id="guess-button" onclick="guessFunction(); stopTimer()" value="Guess Location"/>
+  </div>
+  <div id="pano"></div>
+  <div id="end-page" style="display: none">
+    <div id="thanks">
+      <h1>Thank you for playing!</h1>
+    </div>
+    <div id="result-table">
+      <div id="result-table-bg">
+      <table>
+        <tr>
+          <th>Round</th>
+          <th>Distance</th>
+          <th>Points</th>
+        </tr>
+        <tr>
+          <td id="round-1">1</td>
+          <td id="distance-1"></td>
+          <td id="score-1"></td>
+        </tr>
+        <tr>
+          <td id="round-2">2</td>
+          <td id="distance-2"></td>
+          <td id="score-2"></td>
+        </tr>
+        <tr>
+          <td id="round-3">3</td>
+          <td id="distance-3"></td>
+          <td id="score-3"></td>
+        </tr>
+        <tr>
+          <td id="round-4">4</td>
+          <td id="distance-4"></td>
+          <td id="score-4"></td>
+        </tr>
+        <tr>
+          <td id="round-5">5</td>
+          <td id="distance-5"></td>
+          <td id="score-5"></td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    <div>
+      <h2 id="endscore"></h2>
+    </div>
+    <div id="end-screen-buttons">
+      <input id="hide-results-button" type="button" onClick="hideResults()"value="Hide Results">
+      <input id="new-game-button" type="button" onClick="location.href='../../index.html'" value="New Game">
+    </div>
+  </div>
+</body>
